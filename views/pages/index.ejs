@@ -1,0 +1,30 @@
+<%- contentFor('bread') %>
+<div class="col s12 ">
+
+  </div>
+
+<%- contentFor('body') %>
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Alunos cadastrados: <%=alunos.length%></span>
+                    <div class="card-action">
+                        <a href="/alunos">Listar</a>
+                        <a href="/alunos/add">Cadastrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Clientes cadastrados: <%=clientes.length%></span>
+                    <div class="card-action">
+                        <a href="/clientes">Listar</a>
+                        <a href="/clientes/add">Cadastrar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

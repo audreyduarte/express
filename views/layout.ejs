@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>CRUD APP</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../../css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="../../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+  <div class="navbar-fixed">
+    <nav class="light-blue lighten-1" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">CRUD APP</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Dashboard</a></li>
+          <li><a href="/alunos">Alunos</a></li>
+          <li><a href="/clientes">Clientes</a></li>
+        </ul>
+
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  </div>
+  <ul id="nav-mobile" class="sidenav">
+    <li><a href="/">Dashboard</a></li>
+    <li><a href="/alunos">Alunos</a></li>
+    <li><a href="/clientes">Clientes</a></li>
+  </ul>
+
+
+
+
+  <main>
+    <div class="nav-wrapper">
+      <%- bread %>
+    </div>
+
+    <div id="content" hidden class="container">
+      <%- body %>
+    </div>
+    <div class="center">
+      <div id="loader" style="margin-top: 150px;" class="preloader-wrapper big">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!--  JQUERY SCRIPTS-->
+  <script src="../../js/jquery-scripts/jquery-2.1.1.min.js"></script> <!-- JQUERY -->
+  <script src="../../js/jquery-scripts/jquery.validate.js"></script> <!-- JQUERY VALIDATE-->
+  <script src="../../js/jquery-scripts/jquery-serializeFields.js"></script> <!-- JQUERY SERIALIZE-->
+  <script src="../../js/jquery-scripts/jquery-mask.min.js"></script> <!-- JQUERY MASK-->
+
+  <!-- TEMPLATE SCRIPTS -->
+  <script src="../../js/template-scripts/materialize.min.js"></script> <!-- MATERIALIZE JS-->
+  <script src="../../js/template-scripts/init.js"></script> <!-- METHODS MATERIALIZE-->
+
+  <!-- MY SCRIPTS -->
+  <script src="../../js/my-scripts/submit-forms.js"></script> <!-- SCRIPT SUBMIT FORM-->
+  <script src="../../js/my-scripts/mask-forms.js"></script> <!-- SCRIPT MASKS FORM-->
+
+  <!-- VALIDATIONS SCRIPTS -->
+  <script src="../../js/validation-scripts/alunos-validation.js"></script> <!-- VALIDATION ALUNOS-->
+  <script src="../../js/validation-scripts/clientes-validation.js"></script> <!-- VALIDATION CLIENTES-->
+
+</body>
+
+<script>
+
+  $(window).load(function () {
+    $("#loader").addClass('active');
+    setTimeout(() => {
+
+      $("#content").fadeIn(500);
+      $("#loader").removeClass('active');
+
+      let save = $("#content").closest("form").context.location.href.search('add');
+
+      if (save >= 0) {
+        document.getElementById('buttonSave').click()
+        document.getElementById('buttonReset').click()
+      }
+
+    }, 800);
+  })
+</script>
+
+</html>

@@ -1,0 +1,54 @@
+<%- contentFor('bread') %>
+<div class="col s12 ">
+    <!-- <a href="/" class="breadcrumb"><%=title %></a>
+    <a href="/alunos" class="breadcrumb"><%=title %></a> -->
+  </div>
+
+<%- contentFor('body') %>
+        <h4>
+            <%=title%>
+        </h4>
+        <br>
+
+        <form id="clientes" novalidate="novalidate" method="<%=route%>" autocomplete="off">
+            <p id="errorsMessage" style="color: red;">
+                
+            </p>
+            <%if(data.id>= 0){%>
+                <input type="hidden" value="<%=data.id%>" name="id" id="id">
+                <%}%>
+                    <div class="input-field">
+                        <label for="nome">Nome</label>
+                        <input type="text" value="<%=data.nome%>" required="" minlength="4" autocomplete="off" aria-required="true" name="nome"
+                            id="nome" class="validate">
+                        <span for="nome" class="helper-text" autocomplete="off" data-error="Nome não pode ser vazio"
+                            data-success="Nome ok"></span>
+                    </div>
+                    <div class="input-field">
+                        <label for="sexo">SEXO</label>
+                        <input type="text" value="<%=data.sexo%>" required="" autocomplete="off" aria-required="true" name="sexo"
+                            id="sexo" class="validate">
+                        <span for="sexo" class="helper-text" autocomplete="off" data-error="SEXO não pode ser vazio"
+                            data-success="Dado ok"></span>
+                    </div>
+                    <div class="input-field">
+                        <label for="curso">RG</label>
+                        <input type="text" value="<%=data.rg%>" required="" autocomplete="off" aria-required="true" name="rg"
+                            id="rg" class="validate">
+                        <span for="rg" class="helper-text" data-error="RG não pode ser vazio"
+                            data-success="rg ok"></span>
+                    </div>
+                    <div class="input-field">
+                        <label for="matricula">Data de Nascimento</label>
+                        <input type="text" value="<%=data.data_nasc%>" required="" autocomplete="off" aria-required="true"
+                            name="data_nasc" id="data_nasc" class="validate">
+                        <span for="data_nasc" class="helper-text" data-error="Data de nascimento não pode ser vazio"
+                            data-success="Data de nascimento ok"></span>
+                    </div>
+
+                    <button id="buttonSave" class="waves-effect waves-light btn">Enviar</button>
+                    <%if(route=='save' ){%>
+                        <button id="buttonReset" class="waves-effect waves-light btn" type="reset">Limpar</button>
+                    <%}%>
+                    <a class="waves-effect waves-light btn" href="/clientes">Voltar</a>
+        </form>

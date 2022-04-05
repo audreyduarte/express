@@ -1,0 +1,85 @@
+<%- contentFor('bread') %>
+    <div class="col s12 ">
+        <!-- <a href="/" class="breadcrumb"><%=title %></a>
+    <a href="/alunos" class="breadcrumb"><%=title %></a> -->
+    </div>
+
+    <%- contentFor('body') %>
+        <h4>
+            <%=title%>
+        </h4>
+        <br>
+
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-medium green" href="/clientes/add">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
+
+
+        <!-- Modal Structure -->
+        <div style="border-radius: 9px" id="delete" class="modal">
+            <div style="    margin-bottom: -34px; margin-top: -8px;" class="modal-content">
+                <div style=" margin-left: -24px; margin-right: -24px; background-color: #6b7982; color: white; margin-top: -16px; height: 50px;"
+                    class="row">
+                    <div class="col">
+                        <i style="margin-top: 17px;" class="material-icons">delete</i>
+                    </div>
+                    <div class="col">
+                        <h5>Deletar cliente</h5>
+                    </div>
+                </div>
+
+                <p id="deleteMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <a id="deleteLink" class="waves-effect waves-light btn">Sim</a>
+                <a class="modal-close waves-effect waves-light btn red">Não</a>
+            </div>
+        </div>
+
+
+        <form>
+            <div class="input-field">
+                <i class="material-icons prefix">find_in_page</i>
+                <i id="getAlunoId" style="right: 0;" class="material-icons prefix">search</i>
+                <input id="search" placeholder="Buscar" type="search">
+
+            </div>
+        </form>
+        <table class="responsive-table striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Sexo</th>
+                    <th>RG</th>
+                    <th>Data de Nascimento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(let cliente of clientes){ %>
+                    <tr>
+                        <td>
+                            <%= cliente.nome%>
+                        </td>
+                        <td>
+                            <%= cliente.sexo%>
+                        </td>
+                        <td>
+                            <%= cliente.rg%>
+                        </td>
+                        <td>
+                            <%= cliente.data_nasc%>
+                        </td>
+                        <td>
+                            <a href="/clientes/edit/<%= cliente.id%>" class="btn-floating btn-small green"><i
+                                    class="material-icons">edit</i></a>
+                            <a href="#delete" deleteName="<%= cliente.nome%>"
+                                deleteLink="/clientes/remove/<%= cliente.id%>"
+                                class="buttonDelete btn-floating btn-small modal-trigger red"><i
+                                    class="material-icons">delete</i></a>
+                        </td>
+                    </tr>
+                    <%}%>
+            </tbody>
+        </table>
