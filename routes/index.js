@@ -2,7 +2,7 @@ var express = require('express');
 var axios = require('axios');
 var router = express.Router();
 var urlAlunos = 'https://api-server-senac.herokuapp.com/alunos'
-var urlClientes = 'https://audrey-clientes.herokuapp.com/clientes'
+var urlClientes = 'https://davidosn.herokuapp.com/clientes'
 /* GET home page. */
 router.get('/', function(req, res, next) {
   let dataAlunos = []

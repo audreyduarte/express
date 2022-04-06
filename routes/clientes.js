@@ -2,7 +2,7 @@ var express = require('express');
 var axios = require('axios');
 const { body, validationResult } = require('express-validator');
 var router = express.Router();
-var url = 'https://audrey-clientes.herokuapp.com/clientes'
+var url = 'https://davidosn.herokuapp.com/clientes'
 
 /* GET todos os alunos. */
 router.get('/', function (req, res, next) {
