@@ -13,8 +13,12 @@ router.get('/', function(req, res, next) {
     dataAlunos = response.data
     // res.render('pages/index', { alunos: response.data });
   })
-  .catch(function (error) {
-    console.log(error);
+  .then(function (val){
+    axios.get(urlClientes)
+    .then(function (response) {
+      Clientes = response.data
+      res.render('pages/index', { alunos, clientes});
+    })
   })
 
   axios.get(urlClientes)
